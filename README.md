@@ -51,6 +51,33 @@ The database connection is managed in:
 
 Update the connection URL, database name, username, and password there to match your SQL Server environment.
 
+## Database setup
+
+To run this application, another developer must create the database locally or point to an existing SQL Server instance. The repository does not include a live database, so users must configure their own.
+
+1. Install SQL Server or use an existing SQL Server instance.
+2. Create a database for the project, for example `RMIMS_DB`.
+3. Create the required tables and sample data. If you do not have a SQL script yet, use the database schema in the application code and create tables manually based on the models:
+   - `Users`
+   - `Items`
+   - `Categories`
+   - `Stores`
+   - `Transactions`
+   - `Procurements`
+   - `ProcurementItems`
+4. Set the JDBC connection URL and credentials in `src/com/nalex/rmims/util/DatabaseConnection.java`.
+5. Run the database connectivity test:
+
+```bash
+java -cp "bin;lib/mssql-jdbc-13.2.1.jre11.jar" com.nalex.rmims.util.TestConnection
+```
+
+If the connection succeeds, start the app with:
+
+```bash
+java -cp "bin;lib/mssql-jdbc-13.2.1.jre11.jar" -Djava.library.path=ddl com.nalex.rmims.main.RMIMSApp
+```
+
 ## Project structure
 
 - `src/` — Java source code
@@ -82,3 +109,7 @@ java -cp "bin;lib/mssql-jdbc-13.2.1.jre11.jar" com.nalex.rmims.util.TestConnecti
 - Keep SQL logic inside DAO classes and UI logic inside `gui` classes.
 - Use models in `src/com/nalex/rmims/model` to pass data between the UI and DAOs.
 - Prefer small, focused methods and clear exception handling for database operations.
+
+## License
+
+This project is licensed under the MIT License.
