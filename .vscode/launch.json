@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "RMIMSApp",
+            "request": "launch",
+            "mainClass": "com.nalex.rmims.main.RMIMSApp",
+            "projectName": "RMIMS_e299b20d"
+        },
+        {
+            "type": "java",
+            "name": "UserDAO",
+            "request": "launch",
+            "mainClass": "com.nalex.rmims.dao.UserDAO",
+            "projectName": "RMIMS_e299b20d"
+        },
+        {
+            "type": "java",
+            "name": "DatabaseConnection",
+            "request": "launch",
+            "mainClass": "com.nalex.rmims.util.DatabaseConnection",
+            "projectName": "RMIMS_e299b20d"
+        },
+        {
+            "type": "java",
+            "name": "Test Connection",
+            "request": "launch",
+            "mainClass": "com.nalex.rmims.util.TestConnection",
+            "vmArgs": "-Djava.library.path=./dll",
+            "classPaths": [
+                "${workspaceFolder}/lib/mssql-jdbc-13.2.1.jre11.jar",
+                "${workspaceFolder}/bin"
+            ]
+        }
+    ]
+}
